@@ -69,3 +69,40 @@
   height: 30rem;
   max-width: 100%;
 }
+
+/*******************************/
+/* Below 1344px (Smalled Desktops) */
+/*******************************/
+@media (max-width: 84em) {
+  .grid-container {
+    height: 80vh; /* set height of parent element to viewport height */
+  }
+
+  .landing-img {
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* add this to center horizontally */
+    transform: translateX(-50%); /* add this to center horizontally */
+    height: 20rem;
+    max-width: 100%;
+  }
+}
+
+/*******************************/
+/* Below 1200px (Landscape Tablets) */
+/*******************************/
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 60rem;
+  }
+
+  .landing-img {
+    height: 0;
+  }
+}
