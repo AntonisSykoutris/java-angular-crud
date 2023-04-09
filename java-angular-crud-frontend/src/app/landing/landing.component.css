@@ -1,0 +1,71 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  /* padding: 20rem; */
+  width: 80rem;
+  max-width: 100%;
+  height: 85vh; /* set height of parent element to viewport height */
+  margin: 0 auto; /* added margin property */
+  align-items: center; /* center items vertically within container */
+  justify-content: center;
+}
+
+.grid-item:link,
+.grid-item:visited {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20rem;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+}
+
+.grid-item:hover,
+.grid-item:active {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item:hover .grid-item-content-svg,
+.grid-item:active .grid-item-content-svg {
+  fill: #3498db;
+}
+
+.grid-item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.grid-item-content-span {
+  flex: 1;
+  font-size: 4.3rem;
+  font-weight: 500;
+}
+
+.grid-item-content-svg {
+  flex: 1;
+  width: 6rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.grid-item.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.landing-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* add this to center horizontally */
+  transform: translateX(-50%); /* add this to center horizontally */
+  height: 30rem;
+  max-width: 100%;
+}

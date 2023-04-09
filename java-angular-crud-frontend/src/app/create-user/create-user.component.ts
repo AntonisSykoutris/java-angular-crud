@@ -25,10 +25,11 @@ export class CreateUserComponent implements OnInit {
   saveUser() {
     this.userService.createUser(this.user).subscribe(
       (data: any) => {
-        if (this.address.work != '' && this.address.home != '') {
-          this.address.id = data.id;
-          this.saveAddress(); // Pass user id to saveAddress method
-        } else this.goToUserList();
+        // if (this.address.work?.trim() || this.address.home?.trim()) {
+        this.address.id = data.id;
+        this.saveAddress(); // Pass user id to saveAddress method
+        //   } else
+        this.goToUserList();
       },
       (error) => console.log(error)
     );
@@ -48,8 +49,6 @@ export class CreateUserComponent implements OnInit {
   }
 
   onSubmit() {
-    //  console.log(this.user);
-    // console.log(this.address);
     this.saveUser();
   }
 }
