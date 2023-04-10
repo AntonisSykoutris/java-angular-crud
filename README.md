@@ -15,7 +15,7 @@ To get started with this application, follow these steps:
 
 - Clone the repository to your local machine.
 - Open MySQL Workbench and create a new schema named europeandynamicsdb.
-- Run the SQL script located in backend/src/main/resources/schema.sql to create the users and addresses tables in the europeandynamicsdb schema.
+- Run the SQL script located in backend/src/main/resources/schema.sql to create the java_angular_crud_db schema,  users and addresses tables.
 - Navigate to the backend directory in Spring Tool Suite 4 and run the project to start the Spring Boot backend.
 - Navigate to the frontend directory and run ng serve to start the Angular frontend.
 - Open your web browser and go to http://localhost:4200 to access the application.
