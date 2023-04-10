@@ -1,3 +1,5 @@
+CREATE SCHEMA `java_angular_crud_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
@@ -6,7 +8,6 @@ CREATE TABLE users (
   birthdate DATE NOT NULL,
   PRIMARY KEY (id)
 );
-
 
 CREATE TABLE addresses (
   id INT NOT NULL,

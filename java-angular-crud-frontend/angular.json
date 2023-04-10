@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "european-frontend": {
+    "java-angular-crud-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/european-frontend",
+            "outputPath": "dist/java-angular-crud-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -53,10 +53,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "european-frontend:build:production"
+              "browserTarget": "java-angular-crud-frontend:build:production"
             },
             "development": {
-              "browserTarget": "european-frontend:build:development"
+              "browserTarget": "java-angular-crud-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -64,7 +64,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "european-frontend:build"
+            "browserTarget": "java-angular-crud-frontend:build"
           }
         },
         "test": {
