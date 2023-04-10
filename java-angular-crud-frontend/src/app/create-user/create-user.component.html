@@ -1,97 +1,114 @@
-<div class="col-md-6 offset-md-3">
-  <h3>Create User</h3>
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label>First Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="name"
-        [(ngModel)]="user.name"
-        name="name"
-        maxlength="255"
-        required
-      />
+<section class="col-md-6 offset-md-3 section">
+  <header>
+    <h2 class="title">Create User</h2>
+  </header>
+  <form (ngSubmit)="onSubmit()" class="form-container">
+    <fieldset class="form-field">
+      <legend class="form-title">First Name</legend>
+      <div class="form-group form-input">
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          [(ngModel)]="user.name"
+          name="name"
+          maxlength="255"
+          required
+        />
+      </div>
+    </fieldset>
+
+    <fieldset class="form-field">
+      <legend class="form-title">Last Name</legend>
+      <div class="form-group form-input">
+        <input
+          type="text"
+          class="form-control"
+          id="surname"
+          [(ngModel)]="user.surname"
+          name="surname"
+          maxlength="255"
+          required
+        />
+      </div>
+    </fieldset>
+
+    <div class="form-row">
+      <fieldset class="form-field">
+        <legend class="form-title">Gender</legend>
+        <div class="form-group form-input">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            [(ngModel)]="user.gender"
+            name="gender"
+            required
+          >
+            <option selected value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-field">
+        <legend class="form-title">Birthdate</legend>
+        <div class="form-group form-input form-birthdate">
+          <input
+            type="text"
+            class="form-control"
+            id="birthdate"
+            bsDatepicker
+            [(ngModel)]="user.birthdate"
+            name="birthdate"
+            autocomplete="off"
+            [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+            required
+            onfocus="this.blur()"
+          />
+        </div>
+      </fieldset>
     </div>
 
-    <div class="form-group">
-      <label>First Surname</label>
-      <input
-        type="text"
-        class="form-control"
-        id="surname"
-        [(ngModel)]="user.surname"
-        name="surname"
-        maxlength="255"
-        required
-      />
-    </div>
+    <fieldset class="form-field">
+      <legend class="form-title">Work Address</legend>
+      <div class="form-group form-input">
+        <textarea
+          class="form-control"
+          id="work"
+          [(ngModel)]="address.work"
+          name="work"
+          maxlength="255"
+          rows="1"
+          style="resize: none"
+        ></textarea>
+      </div>
+    </fieldset>
 
-    <div class="form-group">
-      <label>Gender</label>
-      <select
-        class="form-select"
-        aria-label="Default select example"
-        [(ngModel)]="user.gender"
-        name="gender"
-        required
+    <fieldset class="form-field">
+      <legend class="form-title">Home Address</legend>
+      <div class="form-group form-input">
+        <textarea
+          class="form-control"
+          id="home"
+          [(ngModel)]="address.home"
+          name="home"
+          maxlength="255"
+          rows="1"
+          style="resize: none"
+        ></textarea>
+      </div>
+    </fieldset>
+
+    <footer class="footer">
+      <button
+        class="btn"
+        type="submit"
+        [disabled]="
+          !user.name || !user.surname || !user.gender || !user.birthdate
+        "
       >
-        <option selected value="M">Male</option>
-        <option value="F">Female</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="birthdate">Birthdate</label>
-      <input
-        type="text"
-        class="form-control"
-        id="birthdate"
-        placeholder="Choose your birthdate"
-        bsDatepicker
-        [(ngModel)]="user.birthdate"
-        name="birthdate"
-        autocomplete="off"
-        [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
-        required
-      />
-    </div>
-
-    <div class="form-group">
-      <label>Work Address</label>
-      <textarea
-        class="form-control"
-        id="work"
-        [(ngModel)]="address.work"
-        name="work"
-        maxlength="255"
-        rows="1"
-        style="resize: none"
-      ></textarea>
-    </div>
-
-    <div class="form-group">
-      <label>Home Address</label>
-      <textarea
-        class="form-control"
-        id="home"
-        [(ngModel)]="address.home"
-        name="home"
-        maxlength="255"
-        rows="1"
-        style="resize: none"
-      ></textarea>
-    </div>
-
-    <br />
-    <button
-      class="btn btn-success"
-      type="submit"
-      [disabled]="
-        !user.name || !user.surname || !user.gender || !user.birthdate
-      "
-    >
-      Submit
-    </button>
+        Submit
+      </button>
+    </footer>
   </form>
-</div>
+</section>

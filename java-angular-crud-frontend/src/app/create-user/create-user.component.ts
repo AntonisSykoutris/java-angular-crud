@@ -18,7 +18,9 @@ export class CreateUserComponent implements OnInit {
     private userService: UserService,
     private addressService: AddressService,
     private router: Router
-  ) {}
+  ) {
+    this.user.gender = 'M';
+  }
 
   ngOnInit(): void {}
 

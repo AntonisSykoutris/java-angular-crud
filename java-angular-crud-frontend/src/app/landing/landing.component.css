@@ -1,3 +1,10 @@
+.project-title {
+  padding-top: 5rem;
+  font-size: 4.4rem;
+  font-weight: bold;
+  color: #000;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
