@@ -1,4 +1,4 @@
-# Java Spring Boot Angular CRUD Web Application
+# Java Spring Boot Angular CRUD Web Application(UserNexus)
 This is a web application built using the Java Spring Boot framework on the backend and Angular on the frontend. The purpose of this application is to perform CRUD (Create, Read, Update, Delete) operations on a database of users and their addresses.
 
 ## Prerequisites
