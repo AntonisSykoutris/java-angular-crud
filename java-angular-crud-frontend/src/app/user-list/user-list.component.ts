@@ -54,12 +54,13 @@ export class UserListComponent implements OnInit {
 
   deleteUser(id: number) {
     this.addressService.deleteAddress(id).subscribe(
-      (data) => {},
-      (error) => console.log(error)
-    );
-    this.userService.deleteUser(id).subscribe(
       (data) => {
-        this.getUsers();
+        this.userService.deleteUser(id).subscribe(
+          (data) => {
+            this.getUsers();
+          },
+          (error) => console.log(error)
+        );
       },
       (error) => console.log(error)
     );
