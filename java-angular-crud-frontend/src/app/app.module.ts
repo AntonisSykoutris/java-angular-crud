@@ -11,6 +11,7 @@ import { LandingComponent } from './landing/landing.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     BsDatepickerModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

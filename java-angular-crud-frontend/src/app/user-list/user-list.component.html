@@ -1,36 +1,87 @@
-<h2>User List</h2>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.name }}</td>
-      <td>{{ user.surname }}</td>
+<!-- Navbar  -->
+<nav class="navbar navbar-expand-lg">
+  <h3 class="navbar-brand">User Nexus</h3>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbar"
+    aria-controls="navbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar">
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      [(ngModel)]="searchTerm"
+      placeholder="Search users..."
+      aria-label="Search"
+    />
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create-user">Create User</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-      <td>
-        <button (click)="updateUser(user.id)" class="btn btn-info">
-          Update
-        </button>
-        <button
-          (click)="deleteUser(user.id)"
-          class="btn btn-danger"
-          style="margin-left: 10px"
-        >
-          Delete
-        </button>
-        <button
-          (click)="userDetails(user.id)"
-          class="btn btn-info"
-          style="margin-left: 10px"
-        >
-          View
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<section class="section">
+  <h2 class="title">Users List</h2>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let user of filterUsers()
+            | paginate
+              : { itemsPerPage: itemsPerPage, currentPage: currentPage }
+        "
+        role="row"
+        class="tr"
+      >
+        <td role="cell">{{ user.name }}</td>
+        <td role="cell">{{ user.surname }}</td>
+        <td role="cell" class="action-btns">
+          <button
+            (click)="userDetails(user.id)"
+            class="btn btn-info rounded-pill"
+            aria-label="View user details"
+          >
+            View
+          </button>
+          <button
+            (click)="updateUser(user.id)"
+            class="btn btn-warning rounded-pill"
+          >
+            Update
+          </button>
+          <button
+            (click)="deleteUser(user.id)"
+            class="btn btn-danger rounded-pill"
+            aria-label="Delete user"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls
+    (pageChange)="currentPage = $event"
+    previousLabel="Previous"
+    nextLabel="Next"
+    *ngIf="users.length > itemsPerPage"
+  ></pagination-controls>
+</section>

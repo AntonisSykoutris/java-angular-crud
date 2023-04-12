@@ -1,0 +1,208 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+}
+
+.navbar-brand {
+  flex: 1;
+  color: #000;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.form-inline {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.form-control {
+  flex: 0.2;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #eee;
+  color: #000;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-control::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.form-control::-moz-search-cancel-button {
+  cursor: pointer;
+}
+
+.form-control:focus::-webkit-search-cancel-button,
+.form-control:focus::-moz-search-cancel-button {
+  cursor: pointer;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.4);
+}
+
+.navbar-nav {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: #9acced;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 4.4rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.table {
+  margin-top: 2rem;
+  max-width: 50rem;
+  background-color: #f5f5f5;
+  border-radius: 2rem;
+  border-spacing: 0;
+  border-collapse: separate;
+  overflow: hidden !important;
+}
+
+.table tr:last-child td:first-child {
+  border-bottom-left-radius: 2rem;
+}
+
+.table tr:last-child td:last-child {
+  border-bottom-right-radius: 2rem;
+}
+
+.action-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  gap: 3rem;
+}
+
+.btn {
+  flex: 1;
+  font-size: 1.5rem;
+}
+
+::ng-deep .ngx-pagination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .ngx-pagination .current {
+  background: #9acced !important;
+  border-radius: 50%;
+  padding: 1.4rem !important;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep
+  .ngx-pagination
+  li
+  a:not(.pagination-next a):not(.pagination-previous a) {
+  background: transparent !important;
+  border-radius: 50% !important;
+  padding: 1.4rem !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem !important;
+}
+
+::ng-deep
+  .ngx-pagination
+  li
+  a:not(.pagination-next a):not(.pagination-previous a):hover {
+  background: #f5f5f5 !important;
+  border-radius: 50% !important;
+  padding: 1.4rem !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem !important;
+}
+
+::ng-deep .ngx-pagination .pagination-previous a:link,
+::ng-deep .ngx-pagination .pagination-previous a:visited,
+::ng-deep .ngx-pagination .pagination-next a:link,
+::ng-deep .ngx-pagination .pagination-next a:visited {
+  color: #000;
+}
+
+::ng-deep .ngx-pagination .pagination-previous a:hover,
+::ng-deep .ngx-pagination .pagination-previous a:active,
+::ng-deep .ngx-pagination .pagination-next a:hover,
+::ng-deep .ngx-pagination .pagination-next a:active {
+  color: #000;
+  background-color: #f5f5f5;
+  border-radius: 2rem;
+}
+
+/*******************************/
+/* Below 1344px (Smalled Desktops) */
+/*******************************/
+@media (max-width: 84em) {
+}
+
+/*******************************/
+/* Below 1200px (Landscape Tablets) */
+/*******************************/
+@media (max-width: 75em) {
+  /* html {
+    font-size: 56.25%;
+  } */
+}

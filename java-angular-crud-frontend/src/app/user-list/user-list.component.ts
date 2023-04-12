@@ -11,20 +11,38 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
   users: User[];
+  currentPage = 1;
+  itemsPerPage = 5;
+  searchTerm: string;
 
   constructor(
     private userService: UserService,
     private addressService: AddressService,
     private router: Router
-  ) {}
+  ) {
+    this.users = [];
+  }
 
   ngOnInit(): void {
     this.getUsers();
+    this.searchTerm = '';
   }
 
   private getUsers() {
     this.userService.getUsersList().subscribe((data) => {
       this.users = data;
+    });
+  }
+
+  filterUsers() {
+    if (!this.searchTerm || !this.users) {
+      return this.users;
+    }
+    return this.users.filter((user) => {
+      const name = user.name.toLowerCase();
+      const surname = user.surname.toLowerCase();
+      const term = this.searchTerm.toLowerCase();
+      return name.includes(term) || surname.includes(term);
     });
   }
 
