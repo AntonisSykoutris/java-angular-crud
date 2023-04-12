@@ -53,11 +53,20 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(id: number) {
+    const index = this.users.findIndex((user) => user.id === id);
     this.addressService.deleteAddress(id).subscribe(
-      (data) => {
+      () => {
         this.userService.deleteUser(id).subscribe(
-          (data) => {
+          () => {
             this.getUsers();
+            const page = Math.floor(index / this.itemsPerPage) + 1;
+            const lastPage = Math.ceil(this.users.length / this.itemsPerPage);
+            if (
+              page === lastPage &&
+              this.users.length % this.itemsPerPage === 1
+            ) {
+              this.currentPage -= 1;
+            }
           },
           (error) => console.log(error)
         );

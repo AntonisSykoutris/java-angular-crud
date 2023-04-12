@@ -91,6 +91,7 @@
             name="birthdate"
             autocomplete="off"
             [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"
+            #birthdateInput
             required
             onfocus="this.blur()"
           />
@@ -133,7 +134,11 @@
         class="btn"
         type="submit"
         [disabled]="
-          !user.name || !user.surname || !user.gender || !user.birthdate
+          !user.name ||
+          !user.surname ||
+          !user.gender ||
+          !user.birthdate ||
+          isInvalidDate(birthdateInput.value)
         "
       >
         Submit

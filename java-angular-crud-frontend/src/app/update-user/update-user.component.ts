@@ -40,6 +40,11 @@ export class UpdateUserComponent {
     );
   }
 
+  isInvalidDate(birthdateInputValue: string): boolean {
+    const birthdate = new Date(birthdateInputValue);
+    return isNaN(birthdate.getTime());
+  }
+
   goToUserList() {
     this.router.navigate(['/users']);
   }
