@@ -36,8 +36,30 @@
   <table class="table table-bordered table-striped table-hover">
     <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Surname</th>
+        <th scope="col">
+          Name
+          <span class="sort-icon" (click)="sort('name')">
+            <i
+              [ngClass]="
+                nameSortOrder === 'asc'
+                  ? 'bi bi-sort-alpha-down'
+                  : 'bi bi-sort-alpha-up'
+              "
+            ></i>
+          </span>
+        </th>
+        <th scope="col">
+          Surname
+          <span class="sort-icon" (click)="sort('surname')">
+            <i
+              [ngClass]="
+                surnameSortOrder === 'asc'
+                  ? 'bi bi-sort-alpha-down'
+                  : 'bi bi-sort-alpha-up'
+              "
+            ></i>
+          </span>
+        </th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -61,6 +83,7 @@
           >
             View
           </button>
+
           <button
             (click)="updateUser(user.id)"
             class="btn btn-warning rounded-pill"

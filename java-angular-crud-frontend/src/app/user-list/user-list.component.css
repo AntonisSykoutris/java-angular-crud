@@ -99,6 +99,15 @@ a {
   color: #000;
 }
 
+.sort-icon i {
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+.sort-icon:hover {
+  cursor: pointer;
+  color: #9acced;
+}
+
 .table {
   margin-top: 2rem;
   max-width: 50rem;
