@@ -3,6 +3,7 @@ import { User } from '../user';
 import { UserService } from '../user.service';
 import { AddressService } from '../address.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -18,6 +19,7 @@ export class UserListComponent implements OnInit {
   constructor(
     private userService: UserService,
     private addressService: AddressService,
+    private route: ActivatedRoute,
     private router: Router
   ) {
     this.users = [];
