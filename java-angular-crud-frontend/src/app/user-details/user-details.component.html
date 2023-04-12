@@ -1,21 +1,53 @@
-<h3>View User Details</h3>
-<div>
-  <div>
-    <label> <b> First Name: </b></label> {{ user.name }}
+<!-- Navbar  -->
+<nav class="navbar navbar-expand-lg">
+  <h3 class="navbar-brand">User Nexus</h3>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbar"
+    aria-controls="navbar"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create-user">Create User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users">Display Users</a>
+      </li>
+    </ul>
   </div>
-  <div>
-    <label> <b> Last Name: </b></label> {{ user.surname }}
-  </div>
-  <div>
-    <label> <b> Gender: </b></label> {{ user.gender }}
-  </div>
-  <div>
-    <label> <b> Birthdate: </b></label> {{ user.birthdate }}
-  </div>
-  <div>
-    <label> <b> Work Address: </b></label> {{ address.work }}
-  </div>
-  <div>
-    <label> <b> Home Address: </b></label> {{ address.home }}
-  </div>
-</div>
+</nav>
+<section class="section">
+  <h2 class="title">User Details</h2>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Birthdate</th>
+        <th scope="col">Work Address</th>
+        <th scope="col">Home Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr role="row" class="tr">
+        <td role="cell">{{ user.name }}</td>
+        <td role="cell">{{ user.surname }}</td>
+        <td role="cell">{{ user.gender }}</td>
+        <td role="cell">{{ user.birthdate }}</td>
+        <td role="cell">{{ address.work }}</td>
+        <td role="cell">{{ address.home }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

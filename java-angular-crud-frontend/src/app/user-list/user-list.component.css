@@ -196,13 +196,21 @@
 /* Below 1344px (Smalled Desktops) */
 /*******************************/
 @media (max-width: 84em) {
+  .navbar-brand {
+    flex: 1;
+  }
+
+  .form-control {
+    flex: 1;
+  }
+
+  .navbar-nav {
+    flex: 1;
+  }
 }
 
 /*******************************/
 /* Below 1200px (Landscape Tablets) */
 /*******************************/
 @media (max-width: 75em) {
-  /* html {
-    font-size: 56.25%;
-  } */
 }
