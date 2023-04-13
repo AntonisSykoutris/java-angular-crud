@@ -11,15 +11,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-user.component.css'],
 })
 export class CreateUserComponent implements OnInit {
-  user: User = new User();
-  address: Address = new Address();
+  user: User = new User(); // Initializing User instance
+  address: Address = new Address(); // Initializing Address instance
 
   constructor(
     private userService: UserService,
     private addressService: AddressService,
     private router: Router
   ) {
-    this.user.gender = 'M';
+    this.user.gender = 'M'; // Set default gender to 'M'
   }
 
   ngOnInit(): void {}
@@ -27,35 +27,33 @@ export class CreateUserComponent implements OnInit {
   saveUser() {
     this.userService.createUser(this.user).subscribe(
       (data: any) => {
-        // if (this.address.work?.trim() || this.address.home?.trim()) {
-        this.address.id = data.id;
-        this.saveAddress(); // Pass user id to saveAddress method
-        //   } else
-        this.goToUserList();
+        this.address.id = data.id; // Set the address id to the user id
+        this.saveAddress(); // Call saveAddress method
+        this.goToUserList(); // Call goToUserList method
       },
-      (error) => console.log(error)
+      (error) => console.log(error) // Log error to console if saveUser fails
     );
   }
 
   saveAddress() {
     this.addressService.createAddress(this.address).subscribe(
       (data) => {
-        this.goToUserList();
+        this.goToUserList(); // Call goToUserList method
       },
-      (error) => console.log(error)
+      (error) => console.log(error) // Log error to console if saveAddress fails
     );
   }
 
   isInvalidDate(birthdateInputValue: string): boolean {
-    const birthdate = new Date(birthdateInputValue);
-    return isNaN(birthdate.getTime());
+    const birthdate = new Date(birthdateInputValue); // Create a new Date instance from birthdateInputValue
+    return isNaN(birthdate.getTime()); // Check if birthdate is a valid date
   }
 
   goToUserList() {
-    this.router.navigate(['/users']);
+    this.router.navigate(['/users']); // Navigate to the user list page
   }
 
   onSubmit() {
-    this.saveUser();
+    this.saveUser(); // Call saveUser method when form is submitted
   }
 }

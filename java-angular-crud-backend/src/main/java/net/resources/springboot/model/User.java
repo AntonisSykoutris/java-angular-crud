@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
-// Defining an Entity class "User" with corresponding database table "instructor"
+// Defining an Entity class "User" with corresponding database table "users"
 @Entity
 @Table(name = "users")
 public class User {
