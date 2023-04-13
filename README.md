@@ -28,6 +28,10 @@ This application has the following features:
 - Edit an existing user and address in the database.
 - Delete a user and their address from the database.
 - List a user and his/her addresses in the database.
+- Search for a user in the users table.
+- Sort users based on their name or surname.
+- Paginate the table of users.
+
 ## Technologies used
 This application uses the following technologies:
 
