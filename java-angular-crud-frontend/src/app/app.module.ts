@@ -6,11 +6,11 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { LandingComponent } from './landing/landing.component';
-import { CreateUserComponent } from './create-user/create-user.component';
-import { UpdateUserComponent } from './update-user/update-user.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({

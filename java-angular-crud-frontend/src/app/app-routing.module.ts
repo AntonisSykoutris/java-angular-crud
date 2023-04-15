@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component';
-import { LandingComponent } from './landing/landing.component';
-import { CreateUserComponent } from './create-user/create-user.component';
-import { UpdateUserComponent } from './update-user/update-user.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
