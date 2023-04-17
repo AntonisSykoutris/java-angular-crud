@@ -4,6 +4,7 @@ import { Address } from '../../models/address';
 import { UserService } from '../../services/user.service';
 import { AddressService } from '../../services/address.service';
 import { Router } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-create-user',
@@ -24,24 +25,25 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveUser() {
-    this.userService.createUser(this.user).subscribe(
-      (data: any) => {
-        this.address.id = data.id; // Set the address id to the user id
-        this.saveAddress(); // Call saveAddress method
-        this.goToUserList(); // Call goToUserList method
-      },
-      (error) => console.log(error) // Log error to console if saveUser fails
-    );
+  async saveUser() {
+    try {
+      const data: any = await lastValueFrom(
+        this.userService.createUser(this.user)
+      );
+      this.address.id = data.id; // Set the address id to the user id
+      await this.saveAddress(); // Call saveAddress method
+      this.goToUserList(); // Call goToUserList method
+    } catch (error) {
+      console.log(error); // Log error to console if saveUser fails
+    }
   }
 
-  saveAddress() {
-    this.addressService.createAddress(this.address).subscribe(
-      (data) => {
-        this.goToUserList(); // Call goToUserList method
-      },
-      (error) => console.log(error) // Log error to console if saveAddress fails
-    );
+  async saveAddress() {
+    try {
+      await lastValueFrom(this.addressService.createAddress(this.address));
+    } catch (error) {
+      console.log(error); // Log error to console if saveAddress fails
+    }
   }
 
   isInvalidDate(birthdateInputValue: string): boolean {

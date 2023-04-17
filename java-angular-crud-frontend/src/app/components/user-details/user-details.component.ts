@@ -4,6 +4,7 @@ import { Address } from '../../models/address';
 import { UserService } from '../../services/user.service';
 import { AddressService } from '../../services/address.service';
 import { ActivatedRoute } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-user-details',
@@ -20,16 +21,21 @@ export class UserDetailsComponent implements OnInit {
     private userService: UserService,
     private addressService: AddressService
   ) {}
-  ngOnInit(): void {
+
+  async ngOnInit(): Promise<void> {
     this.id = this.route.snapshot.params['id'];
 
     this.user = new User();
     this.address = new Address();
-    this.userService.getUserById(this.id).subscribe((data) => {
-      this.user = data;
-    });
-    this.addressService.getAddressById(this.id).subscribe((data) => {
-      this.address = data;
-    });
+
+    const userObservable = this.userService.getUserById(this.id);
+    const addressObservable = this.addressService.getAddressById(this.id);
+
+    try {
+      this.user = await lastValueFrom(userObservable);
+      this.address = await lastValueFrom(addressObservable);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

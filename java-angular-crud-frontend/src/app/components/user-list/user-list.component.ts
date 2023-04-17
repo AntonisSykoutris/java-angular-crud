@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { AddressService } from '../../services/address.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -33,13 +34,14 @@ export class UserListComponent implements OnInit {
     this.searchTerm = ''; // initialize the search term to an empty string
   }
 
-  private getUsers() {
-    // retrieve the list of users from the user service
-    this.userService.getUsersList().subscribe((data) => {
-      this.users = data; // update the users array with the retrieved data
-    });
+  private async getUsers() {
+    try {
+      const data = await lastValueFrom(this.userService.getUsersList());
+      this.users = data;
+    } catch (error) {
+      console.log(error);
+    }
   }
-
   // filter the users based on the search term entered by the user
   filterUsers() {
     if (!this.searchTerm || !this.users) {
@@ -58,31 +60,20 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['update-user', id]);
   }
 
-  // delete a user
-  deleteUser(id: number) {
-    const index = this.users.findIndex((user) => user.id === id); // find the index of the user being deleted
-    // delete the user's address
-    this.addressService.deleteAddress(id).subscribe(
-      () => {
-        // delete the user
-        this.userService.deleteUser(id).subscribe(
-          () => {
-            // update the list of users and navigate to the previous page if necessary
-            this.getUsers();
-            const page = Math.floor(index / this.itemsPerPage) + 1;
-            const lastPage = Math.ceil(this.users.length / this.itemsPerPage);
-            if (
-              page === lastPage &&
-              this.users.length % this.itemsPerPage === 1
-            ) {
-              this.currentPage -= 1; // navigate to the previous page
-            }
-          },
-          (error) => console.log(error)
-        );
-      },
-      (error) => console.log(error)
-    );
+  // delete a user and it's address
+  async deleteUser(id: number) {
+    const index = this.users.findIndex((user) => user.id === id);
+    try {
+      await lastValueFrom(this.addressService.deleteAddress(id));
+      await lastValueFrom(this.userService.deleteUser(id));
+      this.users.splice(index, 1); // remove deleted user from list
+      const lastPage = Math.ceil(this.users.length / this.itemsPerPage);
+      if (this.currentPage > lastPage) {
+        this.currentPage = lastPage; // adjust current page if necessary
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // navigate to the user details page
