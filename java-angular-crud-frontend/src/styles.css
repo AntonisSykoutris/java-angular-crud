@@ -9,10 +9,6 @@
   box-sizing: border-box;
 }
 
-a {
-  text-decoration: none !important;
-}
-
 html {
   font-size: 62.5%;
   overflow-x: hidden;
@@ -20,4 +16,8 @@ html {
 
 body {
   background-color: #95a5a6;
+}
+
+a {
+  text-decoration: none !important;
 }
