@@ -2,11 +2,13 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~ngx-bootstrap/datepicker/bs-datepicker.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~typeface-roboto";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif !important;
 }
 
 html {
