@@ -13,13 +13,13 @@ public class Address {
 	@Id
 	// Mapping the primary key column in the table to the id field of the class
 	@Column(name = "id")
-	protected int id;
+	private int id;
 	// Mapping the name column in the table to the name field of the class
 	@Column(name = "work")
-	protected String work;
+	private String work;
 
 	@Column(name = "home")
-	protected String home;
+	private String home;
 
 	public Address() {
 	}

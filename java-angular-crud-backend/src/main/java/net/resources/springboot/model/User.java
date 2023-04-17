@@ -23,21 +23,21 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	// Mapping the primary key column in the table to the id field of the class
 	@Column(name = "id")
-	protected int id;
+	private int id;
 
 	// Mapping the name column in the table to the name field of the class
 	@Column(name = "name")
-	protected String name;
+	private String name;
 
 	@Column(name = "surname")
-	protected String surname;
+	private String surname;
 
 	@Column(name = "gender")
-	protected String gender;
+	private String gender;
 
 	@Column(name = "birthdate")
 	@Temporal(TemporalType.DATE)
-	protected Date birthdate;
+	private Date birthdate;
 
 	// Default constructor for the User class
 	public User() {
